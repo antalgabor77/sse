@@ -1,0 +1,40 @@
+@channel_name_1 = antalg
+@channel_name_2 = ag
+
+# @name token_req
+GET http://localhost:8080/sse/token?registrationId={{channel_name}}
+
+###
+@token = {{token_req.response.body}}
+
+#GET http://localhost:8080/sse?token={{token}}
+
+###
+GET http://localhost:8080/admin/cache/{{channel_name_1}}
+
+###
+GET http://localhost:8080/admin/balance/{{channel_name_1}}/2000
+
+###
+GET http://localhost:8090/admin/balance/{{channel_name_1}}/5000
+
+###
+#GET http://localhost:8090/sse?token={{channel_name_2}}
+
+###
+GET http://localhost:8090/admin/balance/{{channel_name_2}}/123
+
+###
+GET http://localhost:8080/admin/balance/{{channel_name_2}}/500
+
+###
+GET http://localhost:8080/admin/cache/{{channel_name_1}}
+
+###
+GET http://localhost:8090/admin/cache/{{channel_name_1}}
+
+###
+GET http://localhost:8080/admin/cache/{{channel_name_2}}
+
+###
+GET http://localhost:8090/admin/cache/{{channel_name_2}}
